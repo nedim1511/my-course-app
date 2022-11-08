@@ -1,0 +1,22 @@
+<div>
+  <p *ngFor="let num of array">
+    <span *ngIf="num === 2">
+      {{ num }}
+    </span>
+    <span *ngIf="num !== 2">
+      This number is not 2
+    </span>
+  </p>
+
+  {{ capitalText | titlecase }}
+  <br>
+  {{ isoDate | date: 'd MM yyyy' }}
+  <br>
+  The price of this course is {{ amount | currency: 'EUR' }}
+  <br>
+  My number is {{ num | number: '1.2-4' }}
+  <br>
+  {{ birthday | birthday }}
+  <hr>
+  This app's version is {{ version }}
+</div>
