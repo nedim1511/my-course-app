@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,8 @@ export class HomeComponent {
   formGroup: FormGroup | undefined;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
   }
 
@@ -30,5 +32,10 @@ export class HomeComponent {
   onFormSubmit(): void {
     console.log(this.formGroup?.valid);
     console.log(this.formGroup?.value);
+  }
+
+  goToProfileAndLogCabbage(): void {
+    console.log('Cabbage');
+    this.router.navigate(['/profile']);
   }
 }
