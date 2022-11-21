@@ -1,1 +1,14 @@
-<p>product works!</p>
+<div class="wrapper">
+  <h1>List of products</h1>
+
+  <mat-card class="example-card" *ngFor="let product of products">
+    <mat-card-header>
+      <mat-card-title>{{ product.title }}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="product.thumbnail" [attr.alt]="product.title">
+    <mat-card-content>
+      <p>{{ product.description }}</p>
+    </mat-card-content>
+  </mat-card>
+
+</div>

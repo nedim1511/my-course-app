@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductService} from "../../services/product.service";
+import {Product} from "../../models/product.interface";
 
 @Component({
   selector: 'app-product',
@@ -8,14 +9,16 @@ import {ProductService} from "../../services/product.service";
 })
 export class ProductComponent implements OnInit {
 
+  products: Product[] = [];
+
   constructor(
     private productService: ProductService
   ) { }
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe((products) => {
+    this.productService.getProducts().subscribe((productResponse) => {
       console.log('Http request is successful')
-      console.log(products);
+      this.products = productResponse.products;
     }, (error) => {
       console.log('Http request is NOT successful')
       console.error(error);
