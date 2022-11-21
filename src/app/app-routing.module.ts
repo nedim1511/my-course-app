@@ -1,8 +1,5 @@
 import {RouterModule, Routes} from "@angular/router";
-import {HomeComponent} from "./modules/home/home.component";
-import {ProfileComponent} from "./modules/profile/profile.component";
 import {NgModule} from "@angular/core";
-import {ProductComponent} from "./modules/product/product.component";
 
 const routes: Routes = [
   {
@@ -12,15 +9,15 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent
+    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
   },
   {
     path: 'profile',
-    component: ProfileComponent
+    loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule)
   },
   {
     path: 'product',
-    component: ProductComponent
+    loadChildren: () => import('./modules/product/product.module').then(m => m.ProductModule)
   }
 ];
 
