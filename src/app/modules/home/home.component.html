@@ -1,0 +1,19 @@
+<app-header *ngIf="isHeaderVisible"></app-header>
+
+<form *ngIf="formGroup" [formGroup]="formGroup">
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Name</mat-label>
+      <input formControlName="name" matInput placeholder="Name">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>Surname</mat-label>
+      <input formControlName="surname" matInput placeholder="Surname">
+    </mat-form-field>
+  </p>
+  <button (click)="onFormSubmit()">Submit</button>
+</form>
+
+<app-footer></app-footer>
