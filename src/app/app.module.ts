@@ -8,6 +8,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {HomeModule} from "./modules/home/home.module";
 import {ProductModule} from "./modules/product/product.module";
 import {ProfileModule} from "./modules/profile/profile.module";
+import {StoreModule} from "@ngrx/store";
+import {EffectsModule} from "@ngrx/effects";
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import {ProfileModule} from "./modules/profile/profile.module";
     HttpClientModule,
     HomeModule,
     ProductModule,
-    ProfileModule
+    ProfileModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

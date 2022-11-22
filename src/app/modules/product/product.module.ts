@@ -4,6 +4,7 @@ import {ProductComponent} from "./product.component";
 import {MatLegacyCardModule as MatCardModule} from "@angular/material/legacy-card";
 import {SharedModule} from "../shared/shared.module";
 import {ProductRoutingModule} from "./product-routing.module";
+import {ProductStateModule} from "../../state/product-state.module";
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import {ProductRoutingModule} from "./product-routing.module";
     MatCardModule,
     NgOptimizedImage,
     SharedModule,
-    ProductRoutingModule
+    ProductRoutingModule,
+    ProductStateModule
   ],
   exports: [],
   declarations: [

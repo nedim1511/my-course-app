@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ProductService} from "../../services/product.service";
 import {Product} from "../../models/product.interface";
+import {Store} from "@ngrx/store";
+import {getProducts} from "../../state/product.selectors";
+import {getProductsAction} from "../../state/product.actions";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-product',
@@ -9,20 +12,15 @@ import {Product} from "../../models/product.interface";
 })
 export class ProductComponent implements OnInit {
 
-  products: Product[] = [];
+  products$: Observable<Product[]> | undefined;
 
   constructor(
-    private productService: ProductService
+    private store: Store
   ) { }
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe((productResponse) => {
-      console.log('Http request is successful')
-      this.products = productResponse.products;
-    }, (error) => {
-      console.log('Http request is NOT successful')
-      console.error(error);
-    });
+    this.store.dispatch(getProductsAction());
+    this.products$ = this.store.select(getProducts);
   }
 
 }
