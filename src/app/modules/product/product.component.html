@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <h1>List of products</h1>
+
+  <mat-card class="example-card" *ngFor="let product of products$ | async">
+    <mat-card-header>
+      <mat-card-title>{{ product.title }}</mat-card-title>
+    </mat-card-header>
+    <img priority mat-card-image [ngSrc]="product.thumbnail" width="200" height="180" [attr.alt]="product.title">
+    <mat-card-content>
+      <p>{{ product.description }}</p>
+    </mat-card-content>
+  </mat-card>
+
+</div>

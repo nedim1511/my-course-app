@@ -1,27 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule} from "@angular/material/card";
-import {MatButtonModule} from "@angular/material/button";
-import {SharedModule} from "./modules/shared/shared.module";
-import {MatInputModule} from "@angular/material/input";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {RouterModule} from "@angular/router";
+import {AppRoutingModule} from "./app-routing.module";
+import {HttpClientModule} from "@angular/common/http";
+import {HomeModule} from "./modules/home/home.module";
+import {ProductModule} from "./modules/product/product.module";
+import {ProfileModule} from "./modules/profile/profile.module";
+import {StoreModule} from "@ngrx/store";
+import {EffectsModule} from "@ngrx/effects";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatCardModule,
-    MatButtonModule,
-    SharedModule,
-    MatInputModule,
-    FormsModule,
-    ReactiveFormsModule
+    RouterModule,
+    AppRoutingModule,
+    HttpClientModule,
+    HomeModule,
+    ProductModule,
+    ProfileModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
